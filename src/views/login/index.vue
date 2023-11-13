@@ -42,6 +42,9 @@
 import { ref } from 'vue'
 import { validatePassword } from './rules'
 import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 // 数据源
 const loginForm = ref({
@@ -90,6 +93,7 @@ const handleLogin = () => {
       .then(() => {
         loading.value = false
         // TODO: 登录后操作
+        router.push('/')
       })
       .catch((err) => {
         console.log(err)
