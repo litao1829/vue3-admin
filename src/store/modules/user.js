@@ -26,6 +26,7 @@ export default {
         })
           .then((data) => {
             console.log(data)
+            console.log(data)
             this.commit('user/setToken', data.token)
             resolve(data)
           })
