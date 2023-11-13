@@ -1,6 +1,7 @@
 import { login, getUserInfo } from '@/api/system'
-import { setItem, getItem } from '@/utils/storage'
+import { setItem, getItem, removeAllItem } from '@/utils/storage'
 import { TOKEN } from '@/constant'
+import router from '@/router'
 export default {
   namespaced: true,
   state: () => ({
@@ -26,7 +27,6 @@ export default {
         })
           .then((data) => {
             console.log(data)
-            console.log(data)
             this.commit('user/setToken', data.token)
             resolve(data)
           })
@@ -40,6 +40,12 @@ export default {
       console.log(res)
       this.commit('user/setUserInfo', res.data)
       return res
+    },
+    logout() {
+      this.commit('user/setToken', '')
+      this.commit('user/setUserInfo', {})
+      removeAllItem()
+      router.push('/login')
     }
   }
 }
