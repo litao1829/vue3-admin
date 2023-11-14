@@ -10,7 +10,7 @@
         <tags-view></tags-view>
       </div>
       <!-- 内容区 -->
-      <AppMain />
+      <AppMain style="margin-top: 30px" />
     </div>
   </div>
 </template>
