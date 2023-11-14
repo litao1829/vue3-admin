@@ -29,9 +29,9 @@
 <script setup>
 import articleList from '@/constant/article.json'
 import { dynamicData, selectDynamicLabel, tableColumns } from './dynamic'
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { tableRef, initSortable } from './sortable'
-const tableData = articleList.list
+const tableData = ref(articleList.list)
 console.log(tableData)
 // 表格拖拽相关
 const getTableData = () => {}
