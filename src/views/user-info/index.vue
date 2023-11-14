@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <el-card class="print-box">
-      <el-button type="primary">打印用户信息</el-button>
+      <el-button type="primary" :loading="printLoading" v-print="printObj">打印用户信息</el-button>
     </el-card>
     <el-card>
-      <div class="user-info-box">
+      <div class="user-info-box" id="userInfoBox">
         <!-- 标题 -->
         <h2 class="title">用户信息</h2>
 
@@ -64,6 +64,24 @@ const props = defineProps({
     required: true
   }
 })
+
+// 打印相关
+const printLoading = ref(false)
+
+const printObj = {
+  // 打印区域
+  id: 'userInfoBox',
+  // 打印标题
+  popTitle: 'imooc-vue-element-admin',
+  // 打印前
+  beforeOpenCallback(vue) {
+    printLoading.value = true
+  },
+  // 执行打印
+  openCallback(vue) {
+    printLoading.value = false
+  }
+}
 
 // 数据相关
 const userInfo = ref({
