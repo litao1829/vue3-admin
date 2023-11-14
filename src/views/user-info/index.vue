@@ -85,14 +85,14 @@ const printObj = {
 
 // 数据相关
 const userInfo = ref({
-  name: 'mqxu',
-  sex: '女',
+  name: '李涛',
+  sex: '男',
   nation: '汉',
-  mobile: '13951905171',
+  mobile: '17751111829',
   address: '南京市栖霞区仙林大学城羊山北路1号',
   date: '2000-08-08',
   remark: '超级管理员',
-  avatar: 'https://i2.100024.xyz/2023/01/26/3e727b.webp',
+  avatar: 'http://8.130.48.205:9000/litao/2023/11/08/backiee-109636_20231108193455A002.jpg',
   experience: [
     {
       startTime: '2018/10',
@@ -109,7 +109,7 @@ const userInfo = ref({
   ],
   major: '软件工程技术',
   post: 'Web 全栈开发',
-  foot: '开到荼蘼'
+  foot: '。。。。。'
 })
 </script>
 
