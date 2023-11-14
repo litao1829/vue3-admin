@@ -2,7 +2,7 @@
   <div class="article-ranking-container">
     <el-card class="header">
       <div class="dynamic-box">
-        <span class="title">{{ $t('msg.article.dynamicTitle') }}</span>
+        <span class="title">动态表格</span>
         <el-checkbox-group v-model="selectDynamicLabel">
           <el-checkbox v-for="(item, index) in dynamicData" :label="item.label" :key="index"
             >{{ item.label }}
@@ -29,8 +29,15 @@
 <script setup>
 import articleList from '@/constant/article.json'
 import { dynamicData, selectDynamicLabel, tableColumns } from './dynamic'
+import { onMounted } from 'vue'
+import { tableRef, initSortable } from './sortable'
 const tableData = articleList.list
 console.log(tableData)
+// 表格拖拽相关
+const getTableData = () => {}
+onMounted(() => {
+  initSortable(tableData, getTableData)
+})
 </script>
 
 <style lang="scss" scoped>
@@ -56,6 +63,11 @@ console.log(tableData)
   .pagination {
     margin-top: 20px;
     text-align: center;
+  }
+  ::v-deep(.sortable-ghost) {
+    opacity: 0.6;
+    color: #fff !important;
+    background: #304156 !important;
   }
 }
 </style>
